@@ -3,7 +3,15 @@
   publish = ".next"
 
 [build.environment]
-  NEXT_PUBLIC_BASE_URL = "/"
+  NEXT_TELEMETRY_DISABLED = "1"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[functions]
+  included_files = [".next/standalone/**"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
